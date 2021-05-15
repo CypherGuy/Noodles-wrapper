@@ -10,9 +10,6 @@ from PIL import Image
 
 headers = {"APIKEY": 'Ef0mZCsxSCKuXuHuJOMargwvZtyk2XaiHdGOmXzK'}
 
-#class noodle_wrapper(commands.Cog):
- #   """Image-modifying commands."""
-
 def worthless(text):
     url = f'https://frenchnoodles.xyz/api/endpoints/worthless?&text={text}'
     res = requests.get(url, headers=headers)
