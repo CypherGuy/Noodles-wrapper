@@ -8,11 +8,14 @@ from importlib.resources import open_text
 import io
 from PIL import Image
 
-headers = {"APIKEY": 'Ef0mZCsxSCKuXuHuJOMargwvZtyk2XaiHdGOmXzK'}
+headers = {"APIKEY": SAMPLE}#When authentication returns, add you key in a string here
+
+#class noodle_wrapper(commands.Cog):
+ #   """Image-modifying commands."""
 
 def worthless(text):
     url = f'https://frenchnoodles.xyz/api/endpoints/worthless?&text={text}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close   
@@ -22,7 +25,7 @@ def worthless(text):
 
 def drake(text1, text2):
     url = f'https://frenchnoodles.xyz/api/endpoints/drake?text1={text1}&text2={text2}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -31,7 +34,7 @@ def drake(text1, text2):
 
 def presidential(text1):
     url = f'https://frenchnoodles.xyz/api/endpoints/presidentialalert?text={text1}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close
@@ -40,7 +43,7 @@ def presidential(text1):
 
 def spongebobburn(text1):
     url = f'https://frenchnoodles.xyz/api/endpoints/spongebobburnpaper?text={text1}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -49,7 +52,7 @@ def spongebobburn(text1):
 
 def lisastage(text1):
     url = f'https://frenchnoodles.xyz/api/endpoints/lisastage?text={text1}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -58,7 +61,7 @@ def lisastage(text1):
 
 def changemind(text1):
     url = f'https://frenchnoodles.xyz/api/endpoints/changemymind?text={text1}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -67,7 +70,7 @@ def changemind(text1):
 
 def awkwardmonkey(text1):
     url = f'https://frenchnoodles.xyz/api/endpoints/awkwardmonkey?text={text1}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -76,7 +79,7 @@ def awkwardmonkey(text1):
 
 def blur(link):
     url = f'https://frenchnoodles.xyz/api/endpoints/blur?image={link}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -85,7 +88,7 @@ def blur(link):
 
 def invert(link):
     url = f'https://frenchnoodles.xyz/api/endpoints/invert?image={link}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -94,7 +97,7 @@ def invert(link):
 
 def edge(link):
     url = f'https://frenchnoodles.xyz/api/endpoints/edges?image={link}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -103,7 +106,7 @@ def edge(link):
 
 def circle(link):
     url = f'https://frenchnoodles.xyz/api/endpoints/circle?image={link}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -112,7 +115,7 @@ def circle(link):
 
 def wide(link):
     url = f'https://frenchnoodles.xyz/api/endpoints/wide?image={link}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -121,7 +124,7 @@ def wide(link):
 
 def uglyupclose(link):
     url = f'https://frenchnoodles.xyz/api/endpoints/uglyupclose?image={link}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -130,7 +133,7 @@ def uglyupclose(link):
 
 def clown(link):
     url = f'https://frenchnoodles.xyz/api/endpoints/clown?image={link}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -139,7 +142,7 @@ def clown(link):
 
 def restpeace(link):
     url = f'https://frenchnoodles.xyz/api/endpoints/rip?image={link}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -148,7 +151,7 @@ def restpeace(link):
 
 def affectbaby(link):
     url = f'https://frenchnoodles.xyz/api/endpoints/acceftbaby?image={link}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -157,7 +160,7 @@ def affectbaby(link):
 
 def trash(link):
     url = f'https://frenchnoodles.xyz/api/endpoints/trash?image={link}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -166,7 +169,7 @@ def trash(link):
 
 def welcomebanner(background, avatar, title, subtitle, textcolor):
     url = f'https://frenchnoodles.xyz/api/endpoints/welcomebanner?background={background}&avatar={avatar}&title={title}&subtitle={subtitle}&textcolor={textcolor}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -175,7 +178,7 @@ def welcomebanner(background, avatar, title, subtitle, textcolor):
 
 def boostercard(link):
     url = f'https://frenchnoodles.xyz/api/endpoints/boostercard?image={link}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
@@ -184,7 +187,7 @@ def boostercard(link):
 
 def balancecard(background, avatar, title, top, bottom, textcolor):
     url = f'https://frenchnoodles.xyz/api/endpoints/balancecard?background={background}&avatar={avatar}&title={title}&text1={top}&text2={bottom}&textcolor={textcolor}'
-    res = requests.get(url, headers=headers)
+    res = requests.get(url)
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close       
