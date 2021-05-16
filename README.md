@@ -25,7 +25,7 @@ Code examples:
 #Headers (Authentication) is optional.. for now.
 import discord
 from discord.ext import commands
-import noodleswrapper
+import noodleswrapper #This is optional, assuming you've pip installed it, still worth to keep it though
 from noodleswrapper import noodle
 
 intents = discord.Intents.all() #Allow all the intents
@@ -42,7 +42,7 @@ async def lisastage(ctx):
 #Headers (Authentication) is optional.. for now.
 import discord
 from discord.ext import commands
-import noodleswrapper
+import noodleswrapper#This is optional, assuming you've pip installed it, still worth to keep it though
 from noodleswrapper import noodle
 
 class Noodle(commands.Cog):
@@ -59,6 +59,7 @@ class Noodle(commands.Cog):
 def setup(client):
   client.add_cog(Noodle(client)) #Must be the same as the class name
 ```
+
 Endpoints:
 -------------
 You can get a complete list [here](https://www.frenchnoodles.xyz/api/endpoints), but for now, the following are valid endpoints for this wrapper, with their inputs:
@@ -86,7 +87,7 @@ You can get a complete list [here](https://www.frenchnoodles.xyz/api/endpoints),
 
 Quota:
 ------
-Due to recent spamming incidents, quotas were added to stop the API from going down. The free tier is below.
+Due to recent spamming incidents, quotas were added to stop the API from going down from abuse. The rates are shown below:
 
 **Default free tier**
 * 1 request per second
@@ -98,7 +99,16 @@ If you need more requests per day, contact French Noodles#6046 on Discord or cli
 Links:
 ------
 
-* [My website](https://frenchnoodles.xyz)
-* [Noodles API](www.frenchnoodles.xyz/api)
+* [Official Noodles API website](https://frenchnoodles.xyz)
+* [Noodles API information](www.frenchnoodles.xyz/api)
 * [Endpoint list](https://www.frenchnoodles.xyz/api/endpoints)
 * [Support server invite](https://discord.gg/hWjRaxfu5V)
+
+Changelog:
+------
+
+* Version 0.1.5: Fixed the `affectbaby` endpoint, updated code, maeked as Beta, deprecated version 0.1.4, Added changelog section to menu / README file
+* Version 0.1.4.1: Added `boostercard` and `welcomebanner` endpoints
+* Version 0.1.4: Alpha release of Noodleswrapper
+
+Have a nice day!
