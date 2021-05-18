@@ -1,6 +1,6 @@
 Noodles API wrapper
 ===================
-##### Created by Kabir Ghai (CypherGuy)
+##### Created by Cypher_Guy (CypherGuy)
 
 A wrapper for [Noodles API](www.frenchnoodles.xyz/api) used as a meme-editor and welcome banners.
 
@@ -62,7 +62,7 @@ def setup(client):
 
 Endpoints:
 -------------
-You can get a complete list [here](https://www.frenchnoodles.xyz/api/endpoints), but for now, the following are valid endpoints for this wrapper, with their inputs:
+You can get a complete list [here](https://www.frenchnoodles.xyz/api/endpoints), but for now, the following are valid endpoints for this wrapper, with their inputs in order:
 
 * worthless (text)
 * drake (Top text, bottom text)
@@ -94,6 +94,16 @@ Due to recent spamming incidents, quotas were added to stop the API from going d
 * 50 requests per hour
 * 250 requests per day
 
+**Hobby tier (£3)**
+* 2 requests per second
+* 80 requests per hour
+* 380 requests per day
+
+**Standard tier (£7)**
+* 3 requests per second
+* 200 requests per hour
+* 800 requests per day
+
 If you need more requests per day, contact French Noodles#6046 on Discord or click [here](https://discord.gg/hWjRaxfu5V) to join the official server.
 
 Links:
@@ -107,6 +117,7 @@ Links:
 Changelog:
 ------
 
+* Version 0.1.6: Updated menu to include more quotes
 * Version 0.1.5: Fixed the `affectbaby` endpoint, updated code, maeked as Beta, deprecated version 0.1.4, Added changelog section to menu / README file
 * Version 0.1.4.1: Added `boostercard` and `welcomebanner` endpoints
 * Version 0.1.4: Alpha release of Noodleswrapper
