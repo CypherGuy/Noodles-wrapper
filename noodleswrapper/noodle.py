@@ -1,195 +1,297 @@
 #!/usr/bin/env python3
 
-import discord
-from discord.ext import commands
-import requests
-from importlib import resources
-from importlib.resources import open_text
-import io
-from PIL import Image
+import discord #To make a discord file
+from os import write #To write to sample.png
+import requests #To request an image
 
-headers = {"APIKEY": SAMPLE}#When authentication returns, add you key in a string here
+baseurl = 'https://frenchnoodles.xyz/api/endpoints/'
+headers = {"APIKEY": SAMPLE}#At some point, headers, aka authentication, will come back. When it does, I'll update the code here.
 
-#class noodle_wrapper(commands.Cog):
- #   """Image-modifying commands."""
-
-def worthless(text):
-    url = f'https://frenchnoodles.xyz/api/endpoints/worthless?&text={text}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close   
-    imageFile = discord.File(fp="sample.png",filename="worthless.png")
-    return imageFile
-
-
-def drake(text1, text2):
-    url = f'https://frenchnoodles.xyz/api/endpoints/drake?text1={text1}&text2={text2}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="drake.png")
-    return imageFile
-
-def presidential(text1):
-    url = f'https://frenchnoodles.xyz/api/endpoints/presidentialalert?text={text1}'
-    res = requests.get(url)
+def writeFile(res):
     file = open("sample.png", "wb")
     file.write(res.content)
     file.close
-    imageFile = discord.File(fp="sample.png",filename="presidential.png")
-    return imageFile
 
-def spongebobburn(text1):
-    url = f'https://frenchnoodles.xyz/api/endpoints/spongebobburnpaper?text={text1}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="spongebobburn.png")
-    return imageFile
+def worthless(text):
+    try:
+        url = f'{baseurl}worthless?text={text}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'#Returns string  
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile#Returns image
 
-def lisastage(text1):
-    url = f'https://frenchnoodles.xyz/api/endpoints/lisastage?text={text1}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="lisastage.png")
-    return imageFile
+def drake(text1, text2):
+    try:
+        url = f'{baseurl}drake?text={text1}&text2={text2}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
-def changemind(text1):
-    url = f'https://frenchnoodles.xyz/api/endpoints/changemymind?text={text1}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="changemind.png")
-    return imageFile
+def presidential(text):
+    try:
+        url = f'{baseurl}presidentialalert?text={text}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
-def awkwardmonkey(text1):
-    url = f'https://frenchnoodles.xyz/api/endpoints/awkwardmonkey?text={text1}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="awkwardmonkey.png")
-    return imageFile
+def spongebobburn(text):
+    try:
+        url = f'{baseurl}spongebobburnpaper?text={text}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
+
+def lisastage(text):
+    try:
+        url = f'{baseurl}lisastage?text={text}'
+        res = requests.get(url)
+        response = res.json()
+        print(1)
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
+
+past = lisastage('text')
+print(past)
+
+def changemind(text):
+    try:
+        url = f'{baseurl}changemymind?text={text}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
+
+def awkwardmonkey(text):
+    try:
+        url = f'{baseurl}awkwardmonkey?text={text}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
 def blur(link):
-    url = f'https://frenchnoodles.xyz/api/endpoints/blur?image={link}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="blur.png")
-    return imageFile
+    try:
+        url = f'{baseurl}blur?image={link}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
 def invert(link):
-    url = f'https://frenchnoodles.xyz/api/endpoints/invert?image={link}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="invert.png")
-    return imageFile
+    try:
+        url = f'{baseurl}invert?image={link}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
 def edge(link):
-    url = f'https://frenchnoodles.xyz/api/endpoints/edges?image={link}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="edge.png")
-    return imageFile
+    try:
+        url = f'{baseurl}edge?image={link}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
 def circle(link):
-    url = f'https://frenchnoodles.xyz/api/endpoints/circle?image={link}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="circle.png")
-    return imageFile
+    try:
+        url = f'{baseurl}circle?image={link}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
 def wide(link):
-    url = f'https://frenchnoodles.xyz/api/endpoints/wide?image={link}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="wide.png")
-    return imageFile
+    try:
+        url = f'{baseurl}wide?image={link}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
 def uglyupclose(link):
-    url = f'https://frenchnoodles.xyz/api/endpoints/uglyupclose?image={link}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="uglyupclose.png")
-    return imageFile
+    try:
+        url = f'{baseurl}uglyupclose?image={link}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
 def clown(link):
-    url = f'https://frenchnoodles.xyz/api/endpoints/clown?image={link}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="clown.png")
-    return imageFile
+    try:
+        url = f'{baseurl}clown?image={link}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
 def restpeace(link):
-    url = f'https://frenchnoodles.xyz/api/endpoints/rip?image={link}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="restpeace.png")
-    return imageFile
+    try:
+        url = f'{baseurl}rip?image={link}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
 def affectbaby(link):
-    url = f'https://frenchnoodles.xyz/api/endpoints/acceftbaby?image={link}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="acceftbaby.png")
-    return imageFile
+    try:
+        url = f'{baseurl}affectbaby?image={link}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
 def trash(link):
-    url = f'https://frenchnoodles.xyz/api/endpoints/trash?image={link}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="trash.png")
-    return imageFile
+    try:
+        url = f'{baseurl}trash?image={link}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
 def welcomebanner(background, avatar, title, subtitle, textcolor):
-    url = f'https://frenchnoodles.xyz/api/endpoints/welcomebanner?background={background}&avatar={avatar}&title={title}&subtitle={subtitle}&textcolor={textcolor}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="welcomebanner.png")
-    return imageFile
+    try:
+        url = f'{baseurl}welcomebanner?background={background}&avatar={avatar}&title={title}&subtitle={subtitle}&textcolor={textcolor}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
 def boostercard(link):
-    url = f'https://frenchnoodles.xyz/api/endpoints/boostercard?image={link}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="boostercard.png")
-    return imageFile
+    try:
+        url = f'{baseurl}boostercard?image={link}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
 
 def balancecard(background, avatar, title, top, bottom, textcolor):
-    url = f'https://frenchnoodles.xyz/api/endpoints/balancecard?background={background}&avatar={avatar}&title={title}&text1={top}&text2={bottom}&textcolor={textcolor}'
-    res = requests.get(url)
-    file = open("sample.png", "wb")
-    file.write(res.content)
-    file.close       
-    imageFile = discord.File(fp="sample.png",filename="balancecard.png")
-    return imageFile
+    try:
+        url = f'{baseurl}balancecard?background={background}&avatar={avatar}&title={title}&text1={top}&text2={bottom}&textcolor={textcolor}'
+        res = requests.get(url)
+        response = res.json()
+        limit = response['You have passed your default quota!']
+        return f'You have passed your default quota of {limit}.'   
+    except:
+        file = open("sample.png", "wb")
+        file.write(res.content)
+        file.close
+        imageFile = discord.File(fp="sample.png",filename="picture.png")
+        return imageFile
